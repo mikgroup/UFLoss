@@ -16,10 +16,18 @@ pip install -r requirements.txt
 We used a subset of [FastMRI](https://fastmri.org/) knee dataset for the training and evaluation. We used E-SPIRiT to pre-compute sensitivity maps using [BART](https://mrirecon.github.io/bart/). Post-processed data (including Sens Maps, Coil combined images) and pre-trained model can be requested by emailing <kewang@berkeley.edu>.
 
 
-## Patch Extraction
+## Step 0: Patch Extraction
 To extract patches from the fully-smapled training data, go to the `UFloss_training/` folder and run `patch_extraction.py` to extract patches. Please specify the directories of the training dataset and the target folder.
 Instructions are avaible by runing:
 
 ```bash
 python patch_extraction.py -h
+```
+
+## Step 1: Train the UFLoss feature mapping network
+
+To train the UFLoss feature mapping network, go to the `UFloss_training/` folder and run `patch_learning.py`. We provide a demo training script to perform the training on fully-sampled patches:
+
+```bash
+bash launch_training_patch_learning.sh
 ```
