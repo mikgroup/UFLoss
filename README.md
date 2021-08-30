@@ -14,3 +14,12 @@ pip install -r requirements.txt
 ## Dataset
 
 We used a subset of [FastMRI](https://fastmri.org/) knee dataset for the training and evaluation. We used E-SPIRiT to pre-compute sensitivity maps using [BART](https://mrirecon.github.io/bart/). Post-processed data (including Sens Maps, Coil combined images) and pre-trained model can be requested by emailing <kewang@berkeley.edu>.
+
+
+## Patch Extraction
+To extract patches from the fully-smapled training data, go to the `UFloss_training/` folder and run `patch_extraction.py` to extract patches.
+Instructions are avaible by runing:
+
+```bash
+python patch_extraction.py -h
+```
