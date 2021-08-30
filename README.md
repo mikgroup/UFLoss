@@ -35,3 +35,16 @@ bash launch_training_patch_learning.sh
 Visualiztion (Patch retrival results, shown below) script will be available soon.
 
 <img src="github_images/Figure5_half.jpg" width="900px"/>
+
+
+## Step 1: Train the DL-based reconstruction with UFLoss
+
+To train the DL-based reconstruction with UFLoss, we provide our source code here at `DL_Recon_UFLoss/`. We adoped [MoDL](https://arxiv.org/abs/1712.02862) as our DL-based reconstruction network. We provide training scripts for MoDL with and without UFLoss at `DL_Recon_UFLoss/models/unrolled2D/scripts`:
+```bash
+bash launch_training_MoDL_traditional_UFLoss_256_demo.sh
+```
+You can easily paly around with the parameters by editing the training script. One representative reconstruction results is shown as below.
+
+<img src="github_images/Figure7.jpg" width="900px"/>
+
+
