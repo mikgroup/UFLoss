@@ -14,7 +14,7 @@ model_name=train_UFLoss_feature_$((dimension))_features_date_$((date))_temperatu
 dir_save=/mikQNAP/NYU_knee_data/knee_train_h5/checkpoints_ufloss_mapping/$model_name
 
 
-python patch_learning_momentum.py --datadir $dir_data\
+python patch_learning.py --datadir $dir_data\
                  -g $device \
                  --logdir $dir_save \
                  -f $dimension \
