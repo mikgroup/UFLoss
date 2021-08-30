@@ -13,4 +13,4 @@ pip install -r requirements.txt
 
 ## Dataset
 
-We used a subset of [FastMRI](https://fastmri.org/) knee dataset for the training and evaluation. We used E-SPIRiT to pre-compute sensitivity maps using [BART](https://mrirecon.github.io/bart/). Post-processed data (including Sens Maps, Coil combined images) can be requested by emailing the [author](kewang@berkeley.edu).
+We used a subset of [FastMRI](https://fastmri.org/) knee dataset for the training and evaluation. We used E-SPIRiT to pre-compute sensitivity maps using [BART](https://mrirecon.github.io/bart/). Post-processed data (including Sens Maps, Coil combined images) can be requested by emailing <kewang@berkeley.edu>(kewang@berkeley.edu).
