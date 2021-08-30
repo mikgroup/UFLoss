@@ -31,3 +31,7 @@ To train the UFLoss feature mapping network, go to the `UFloss_training/` folder
 ```bash
 bash launch_training_patch_learning.sh
 ```
+
+Visualiztion (Patch retrival results, shown below) script will be available soon.
+
+<img src="github_images/Figure5_half.jpg" width="900px"/>
