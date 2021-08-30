@@ -48,3 +48,5 @@ You can easily paly around with the parameters by editing the training script. O
 <img src="github_images/Figure7.jpg" width="900px"/>
 
 
+## Acknoledgements
+Code borrows heavily from [fastMRI](https://github.com/facebookresearch/fastMRI) Github repo. This work is a colaboration between UC Berkeley and GE Healthcare.
