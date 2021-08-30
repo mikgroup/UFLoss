@@ -17,7 +17,7 @@ We used a subset of [FastMRI](https://fastmri.org/) knee dataset for the trainin
 
 
 ## Patch Extraction
-To extract patches from the fully-smapled training data, go to the `UFloss_training/` folder and run `patch_extraction.py` to extract patches.
+To extract patches from the fully-smapled training data, go to the `UFloss_training/` folder and run `patch_extraction.py` to extract patches. Please specify the directories of the training dataset and the target folder.
 Instructions are avaible by runing:
 
 ```bash
