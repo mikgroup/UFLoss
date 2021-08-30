@@ -49,4 +49,4 @@ You can easily paly around with the parameters by editing the training script. O
 
 
 ## Acknoledgements
-Code borrows heavily from [fastMRI](https://github.com/facebookresearch/fastMRI) Github repo. This work is a colaboration between UC Berkeley and GE Healthcare.
+Code borrows heavily from [fastMRI](https://github.com/facebookresearch/fastMRI) Github repo. This work is a colaboration between UC Berkeley and GE Healthcare. Please contact <kewang@berkeley.edu> if you have any questions.
