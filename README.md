@@ -1,7 +1,7 @@
 # Unsupervised Feature Loss (UFLoss) for High Fidelity Deep learning (DL)-based reconstruction
 <img src="github_images/Figure_1.jpg" width="900px"/>
 
-Official github repository for the paper "High Fidelity Deep Learning-based MRI Reconstruction with Instance-wise Discriminative Feature Matching Loss". In this work, a novel patch-based Unsupervised Feature loss (UFLoss) is proposed and incorporated into the training of DL-based reconstruction frameworks in order to preserve perceptual similarity and high-order statistics. In-vivo experiments indicate that adding the UFLoss encourages sharper edges with higher overall image quality under DL-based reconstruction framework. Our implementations are in [PyTorch](https://pytorch.org/)
+Official github repository for the paper [High Fidelity Deep Learning-based MRI Reconstruction with Instance-wise Discriminative Feature Matching Loss](https://arxiv.org/abs/2108.12460). In this work, a novel patch-based Unsupervised Feature loss (UFLoss) is proposed and incorporated into the training of DL-based reconstruction frameworks in order to preserve perceptual similarity and high-order statistics. In-vivo experiments indicate that adding the UFLoss encourages sharper edges with higher overall image quality under DL-based reconstruction framework. Our implementations are in [PyTorch](https://pytorch.org/)
 
 
 
@@ -49,4 +49,4 @@ You can easily paly around with the parameters by editing the training script. O
 
 
 ## Acknoledgements
-Code borrows heavily from [fastMRI](https://github.com/facebookresearch/fastMRI) Github repo. This work is a colaboration between UC Berkeley and GE Healthcare. Please contact <kewang@berkeley.edu> if you have any questions.
+Code borrows heavily from [fastMRI](https://github.com/facebookresearch/fastMRI) Github repo. This work is a colaboration between UC Berkeley and GE Healthcare. Please contact <kewang@berkeley.edu> if you have any questions.GI
