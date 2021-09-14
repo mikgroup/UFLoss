@@ -47,6 +47,14 @@ You can easily paly around with the parameters by editing the training script. O
 
 <img src="github_images/Figure7.jpg" width="900px"/>
 
-
+## Perform inference with the trained model
+To perform the inference reconstruction on the testing set, we provide an inference script at `DL_Recon_UFLoss/models/unrolled2D/inference_ufloss.py`.
+run the following command for inference:
+```bash
+python inference_ufloss.py --data-path <Path to the dataset> 
+                        --device-num <Which device to train on>
+                        --exp-dir <Path where the results should be saved>
+                        --checkpoint <Path to an existing checkpoint>
+```
 ## Acknoledgements
 Code borrows heavily from [fastMRI](https://github.com/facebookresearch/fastMRI) Github repo. This work is a colaboration between UC Berkeley and GE Healthcare. Please contact <kewang@berkeley.edu> if you have any questions.GI
