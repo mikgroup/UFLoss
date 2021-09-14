@@ -53,6 +53,10 @@ class DataTransform:
                 appropriate shape.
         """
         self.mask_func = mask_func
+        if args.ge_mask is not None:
+            self.ge_mask = args.ge_mask
+        else:
+            self.ge_mask = None
 
     def augment(self, kspace, target, seed):
         """
@@ -86,11 +90,19 @@ class DataTransform:
         kspace_torch = torch.tensor(kspace).unsqueeze(0)
         maps_torch = torch.tensor(maps).unsqueeze(0)
         target_torch = torch.tensor(target).unsqueeze(0)
+        if self.ge_mask is None:
 
-        mask_slice = np.ones((640, 372))
+            mask_slice = np.ones((640, 372))
 
-        mk1 = self.mask_func((1, 1, 372, 2))[0, 0, :, 0]
-        knee_masks = mask_slice * mk1
+            mk1 = self.mask_func((1, 1, 372, 2))[0, 0, :, 0]
+            knee_masks = mask_slice * mk1
+
+        else:
+            mask_list = np.array(os.listdir(self.ge_mask))
+            mk = np.random.choice(mask_list, 1)[0]
+            knee_masks = np.load(self.ge_mask + mk)
+            # print(mk, knee_masks.shape)
+            # sys.exit()
         mask_torch = torch.tensor(knee_masks[None, None, ...]).float()
         kspace_torch = kspace_torch * mask_torch
 
@@ -259,7 +271,7 @@ def train_epoch(args, epoch, model, data_loader, optimizer, writer, model_ufloss
     start_epoch = start_iter = time.perf_counter()
     global_step = epoch * len(data_loader)
     print(len(data_loader))
-    for iter, data in enumerate(data_loader):
+    for iter, (data, _) in enumerate(data_loader):
         # Compute image quality metrics
         (
             l1_loss,
@@ -354,7 +366,7 @@ def evaluate(args, epoch, model, data_loader, writer, model_ufloss):
     ufloss_vals = []
     start = time.perf_counter()
     with torch.no_grad():
-        for iter, data in enumerate(data_loader):
+        for iter, (data, _) in enumerate(data_loader):
             # Compute image quality metrics
             l1_loss, l2_loss, cpsnr, mpsnr, ufloss, _, _, _, _ = compute_metrics(
                 args, model, data, model_ufloss
@@ -404,7 +416,7 @@ def visualize(args, epoch, model, data_loader, writer, is_training=True):
 
     model.eval()
     with torch.no_grad():
-        for iter, data in enumerate(data_loader):
+        for iter, (data, _) in enumerate(data_loader):
             # Load all data arrays
             input, maps, init, target, mean, std, norm = data
             input = input.to(args.device)
@@ -649,7 +661,9 @@ def create_arg_parser():
         action="store_true",
         help="If set, will use 3d ufloss instead of 2+1d.",
     )
-
+    parser.add_argument(
+        "--ge-mask", type=str, required=False, default=None, help="Path to the GE mask"
+    )
     parser.add_argument(
         "--fix-step-size", type=bool, default=True, help="Fix unrolled step size"
     )

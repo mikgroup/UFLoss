@@ -7,8 +7,9 @@ LICENSE file in the root directory of this source tree.
 
 import pathlib
 import random
-
+import torch
 import h5py
+import numpy as np
 from torch.utils.data import Dataset
 
 
@@ -50,5 +51,8 @@ class SliceData(Dataset):
             kspace = data["kspace"][()]
             maps = data["sensmaps"][()]
             target = data["target"][()]
-            return self.transform(kspace, maps, target)
+            return (
+                self.transform(kspace, maps, target),
+                str(fname),
+            )
 
