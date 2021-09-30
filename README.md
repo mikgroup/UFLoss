@@ -17,10 +17,10 @@ We used a subset of [FastMRI](https://fastmri.org/) knee dataset for the trainin
 
 **Update** We provide our data-preprocessing code at `UFloss_training/data_preprocessing.py`. This script computes the sensitivity maps and performs data normalization and coil combination. [BART](https://mrirecon.github.io/bart/) toolbox is required for computing the sensitivity maps. Follow the installation instructions on the website and add the following lines to your `.bashrc` file.
 ```bash
-export PYTHONPATH="${PYTHONPATH}:<dir to your bart folder>/python/"
-export PATH="<dir to your bart folder>:$PATH"
+export PYTHONPATH="${PYTHONPATH}:<path to your bart folder>/python/"
+export PATH="<path to your bart folder>:$PATH"
 ```
-To run the data-preprocessing code, download and unzip the [fastMRI](https://fastmri.org/dataset/) Multi-coil knee dataset. run:
+To run the data-preprocessing code, download and unzip the [fastMRI](https://fastmri.org/dataset/) Multi-coil knee dataset. Simplu run
 ```bash
 python data_preprocessing.py -l <path to your fastMRI multi-coil dataset> -t <target directory> -c <size for your E-SPIRiT calibration region>
 ```
