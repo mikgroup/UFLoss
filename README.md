@@ -15,6 +15,15 @@ pip install -r requirements.txt
 
 We used a subset of [FastMRI](https://fastmri.org/) knee dataset for the training and evaluation. We used E-SPIRiT to pre-compute sensitivity maps using [BART](https://mrirecon.github.io/bart/). Post-processed data (including Sens Maps, Coil combined images) and pre-trained model can be requested by emailing <kewang@berkeley.edu>.
 
+**Update** We provide our data-preprocessing code at `UFloss_training/data_preprocessing.py`. This script computes the sensitivity maps and performs data normalization and coil combination. [BART](https://mrirecon.github.io/bart/) toolbox is required for computing the sensitivity maps. Follow the installation instructions on the website and add the following lines to your `.bashrc` file.
+```bash
+export PYTHONPATH="${PYTHONPATH}:<dir to your bart folder>/python/"
+export PATH="<dir to your bart folder>:$PATH"
+```
+To run the data-preprocessing code, download and unzip the [fastMRI](https://fastmri.org/dataset/) Multi-coil knee dataset. run:
+```bash
+python data_preprocessing.py -l <path to your fastMRI multi-coil dataset> -t <target directory> -c <size for your E-SPIRiT calibration region>
+```
 
 ## Step 0: Patch Extraction
 To extract patches from the fully-smapled training data, go to the `UFloss_training/` folder and run `patch_extraction.py` to extract patches. Please specify the directories of the training dataset and the target folder.
