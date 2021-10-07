@@ -66,4 +66,16 @@ python inference_ufloss.py --data-path <Path to the dataset>
                         --checkpoint <Path to an existing checkpoint>
 ```
 ## Acknoledgements
-Code borrows heavily from [fastMRI](https://github.com/facebookresearch/fastMRI) Github repo. This work is a colaboration between UC Berkeley and GE Healthcare. Please contact <kewang@berkeley.edu> if you have any questions.GI
+Reconstruction code borrows heavily from [fastMRI](https://github.com/facebookresearch/fastMRI) Github repo and DL-ESPIRiT by [Christopher Sandino](https://chrsandino.github.io/). This work is a colaboration between UC Berkeley and GE Healthcare. Please contact <kewang@berkeley.edu> if you have any questions.
+
+## Citation
+If you find this code useful for your research, please consider citing our paper <a href="https://arxiv.org/abs/2108.12460">High Fidelity Deep Learning-based MRI Reconstruction with Instance-wise Discriminative Feature Matching Loss</a>:
+
+```
+@article{wang2021high,
+  title={High Fidelity Deep Learning-based MRI Reconstruction with Instance-wise Discriminative Feature Matching Loss},
+  author={Wang, Ke and Tamir, Jonathan I and De Goyeneche, Alfredo and Wollner, Uri and Brada, Rafi and Yu, Stella and Lustig, Michael},
+  journal={arXiv preprint arXiv:2108.12460},
+  year={2021}
+}
+```
