@@ -9,7 +9,7 @@ from torch.utils.data import DataLoader
 from dataset import UFData
 from model import Model
 from tqdm import tqdm
-from resnet import resnet18
+from resnet import resnet18,resnet18_m
 from network import SimpleNet
 
 ## Just for plotting
@@ -133,13 +133,22 @@ class Trainer:
         )
 
         self.data_length = len(self.dataset)
-        self.model = Model(
-            resnet18,
-            temperature=self.args.temperature,
-            feature_dim=self.args.features,
-            device=self.device,
-            data_length=self.data_length,
-        )
+        if bool(self.args.use_magnitude):
+            self.model = Model(
+                resnet18,
+                temperature=self.args.temperature,
+                feature_dim=self.args.features,
+                device=self.device,
+                data_length=self.data_length,
+            )
+        else:
+            self.model = Model(
+                resnet18,
+                temperature=self.args.temperature,
+                feature_dim=self.args.features,
+                device=self.device,
+                data_length=self.data_length,
+            )
         self.criterion = torch.nn.CrossEntropyLoss().to(self.device)
         self.optimizer = torch.optim.Adam(
             self.model.parameters(), lr=self.args.learning_rate
