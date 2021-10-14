@@ -135,7 +135,7 @@ class Trainer:
         self.data_length = len(self.dataset)
         if bool(self.args.use_magnitude):
             self.model = Model(
-                resnet18,
+                resnet18_m,
                 temperature=self.args.temperature,
                 feature_dim=self.args.features,
                 device=self.device,
